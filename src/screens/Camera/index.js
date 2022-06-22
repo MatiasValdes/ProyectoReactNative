@@ -1,4 +1,4 @@
-import { Text, StyleSheet, ActivityIndicator, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, ActivityIndicator, TouchableOpacity, Image } from 'react-native'
 import React, { useRef, useContext } from 'react'
 import { useCameraDevices, Camera } from 'react-native-vision-camera'
 import { AuthContext } from '../../navigation'
@@ -26,12 +26,25 @@ const Index = () => {
                 isActive={true}
             />
             <TouchableOpacity
+                style={styles.actionButton}
                 onPress={doPhoto}
             >
-                <Text>Take Photo</Text>
+                <Image source={require('../../../img/diaphragm.png')} />
             </TouchableOpacity>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    actionButton: {
+        position: 'absolute',
+        bottom: 25,
+        padding: 16,
+        right: 20,
+        left: 20,
+        borderRadius: 20,
+        alignItems: 'center',
+    },
+});
 
 export default Index
