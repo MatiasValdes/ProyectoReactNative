@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator, SafeAreaView, Image, Dimensions, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, ActivityIndicator, SafeAreaView, Image, Dimensions, TouchableOpacity, StyleSheet, Alert } from 'react-native'
 import React, { useEffect, useContext, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { ApiKeyContext } from '../../navigation'
@@ -21,22 +21,24 @@ const WeatherItem = ({ location }) => {
   }, [key])
 
   const apiCall = () => {
-    axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${apiKey}&q=${location[0].latitude}%2C${location[0].longitude}`)
+    axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${apiKey}&q=${location[0].latitude}%2C${location[0].longitude}`)
       .then(response => {
         setKey(response.data.Key)
       })
       .catch(error => {
-        console.log("error get key")
+        Alert.alert(`error get key ${error}`)
+        console.log("error get key ", error)
       })
   }
 
   const apiWeatherDayofDaily = (value) => {
-    axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/1day/${value}?apikey=${apiKey}&language=es-us`)
+    axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/1day/${value}?apikey=${apiKey}&language=es-us`)
       .then(response => {
         setWeather(response.data.DailyForecasts)
       })
       .catch(error => {
-        console.log("error ", error)
+        Alert.alert(`error get WeatherDay ${error}`)
+        console.log("Error get WeatherDay ", error)
       })
   }
 
