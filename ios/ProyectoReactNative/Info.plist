@@ -10,6 +10,8 @@
 		<!-- optionally, if you want to record audio: -->
 		<key>NSMicrophoneUsageDescription</key>
 		<string>$(PRODUCT_NAME) needs access to your Microphone.</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs to get your location...</string>
 		<key>CFBundleDisplayName</key>
 		<string>ProyectoReactNative</string>
 		<key>CFBundleExecutable</key>
