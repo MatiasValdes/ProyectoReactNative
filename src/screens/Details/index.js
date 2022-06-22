@@ -16,7 +16,7 @@ const Details = () => {
   }, [])
 
   const callApi = () => {
-    axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${apiKey}&language=es-us`)
+    axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${key}?apikey=${apiKey}&language=es-us`)
       .then(response => {
         setData(response.data.DailyForecasts)
       })
