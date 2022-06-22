@@ -1,4 +1,4 @@
-import { Text, View, ScrollView, ActivityIndicator } from 'react-native'
+import { View, ScrollView, ActivityIndicator } from 'react-native'
 import React, { useState, useContext, useEffect } from 'react'
 import ListWeather from '../../components/ListWeather'
 import { ApiKeyContext } from '../../navigation'
